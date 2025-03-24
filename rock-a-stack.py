@@ -43,6 +43,8 @@ def addRing():
         print(Fore.RESET)
         while True: #another input loop
             choice=(input("Input A again to choose a ring to add to the stack, input D to inspect a ring, or input X to return to the stack."))
+            if choice=="A" or choice=="a":
+                pass #SUPER WIP
 
 def menuChoose():
     print("")

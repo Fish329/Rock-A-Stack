@@ -1,5 +1,4 @@
-from pickletools import stackslice
-from colorama import Fore, Back, Style
+from colorama import Fore
 stacked=0 #number of stacked rings
 ringStack=[] #empty list to be filled with lists of details for each ring, those being the color, diameter, and what the ring looks like on the stack.
 red=["Red",9," ═════════ "]

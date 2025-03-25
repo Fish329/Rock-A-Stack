@@ -91,7 +91,6 @@ def menuChoose():
     global stacked
     print("")
     choice=input("Input A to add a ring to the stack, input R to remove the top ring, or input X to exit. ")
-    print(choice)
     print("")
     if choice=="a" or choice=="A":
         if freeRings==[]: #If there aren't any rings left, don't bother

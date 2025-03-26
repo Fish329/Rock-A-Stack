@@ -1,10 +1,17 @@
 stacked=0 #number of stacked rings
 ringStack=[] #empty list to be filled with lists of details for each ring, those being the color, diameter, what the ring looks like on the stack, and the escape code for the color.
-red=["Red",9," ═════════ ","\x1b[31m"]
-yellow=["Yellow",7,"  ═══════  ","\x1b[33m"]
-green=["Green",5,"   ═════   ","\x1b[32m"]
-blue=["Blue",3,"    ═══    ","\x1b[34m"]
-cyan=["Cyan",1,"     ═     ","\x1b[96m"]
+cRESET="\033[0m"
+cRED="\x1b[31m"
+cYELLOW="\x1b[33m"
+cGREEN="\x1b[32m"
+cBLUE="\x1b[34m"
+cCYAN="\x1b[96m"
+red=["Red",9," ═════════ ",cRED]
+yellow=["Yellow",7,"  ═══════  ",cYELLOW]
+green=["Green",5,"   ═════   ",cGREEN]
+blue=["Blue",3,"    ═══    ",cBLUE]
+cyan=["Cyan",1,"     ═     ",cCYAN]
+
 freeRings=[red,yellow,green,blue,cyan] #list of rings that havent been added to the stack
 
 def empty(): #check if the stack is empty.
@@ -31,7 +38,7 @@ def addRing():
         counter+=1
         print(i[3],end="")
         print (counter,": ",i[0],sep="")
-        print("\033[0m",end="")
+        print(cRESET,end="")
     print("")
     while True: #another input loop
         choice=(input("Input the number of a ring you would like to inspect. "))
@@ -51,7 +58,7 @@ def addRing():
     print("A colored plastic ring. it looks like this:")
     print(freeRings[choice][3],end="")
     print("〇") #They're all rings, so I can get away with just recoloring the same sprite
-    print("\033[0m"+"Diameter in units: ",freeRings[choice][1],sep="")
+    print(cRESET+"Diameter in units: ",freeRings[choice][1],sep="")
     print("---------------------------------------------")
     print("")
     while True: #input loop
@@ -105,17 +112,24 @@ def menuChoose():
 def drawStack():
     print("At the moment, the stack looks like this:")
     print("")
-    print("\033[0m"+"     O    ")
+    print(cRESET+"     O    ")
     print("     ║    ")
     for i in range(5-stacked):
         print("     ║    ")
     for j in ringStack:
         print(j[3],end="")
         print(j[2])
-    print("\033[0m"+"═════╩═════")
+    print(cRESET+"═════╩═════")
 
-
-print("\033[0m"+"Welcome to Rock-a-stack!")
+print("WARNING: EXTREMELY IMPORTANT")
+print("This program will not work correctly if ran in Python IDLE.")
+print("It will not parse ANSI escape codes required to print in color.")
+print("To my knowledge, there is no fix for this.")
+print("Please follow the instructions listed in the \"how to use\" section on the github page.")
+print("##### PLEASE READ THE MESSAGE ABOVE BEFORE CONTINUING. #####")
+input("Press enter to continue to the program.")
+print("")
+print(cRESET+"Welcome to Rock-a-stack!")
 drawStack()
 menuChoose()
 

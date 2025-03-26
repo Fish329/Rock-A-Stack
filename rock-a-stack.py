@@ -1,11 +1,10 @@
-from colorama import Fore
 stacked=0 #number of stacked rings
-ringStack=[] #empty list to be filled with lists of details for each ring, those being the color, diameter, and what the ring looks like on the stack.
-red=["Red",9," ═════════ "]
-yellow=["Yellow",7,"  ═══════  "]
-green=["Green",5,"   ═════   "]
-blue=["Blue",3,"    ═══    "]
-cyan=["Cyan",1,"     ═     "]
+ringStack=[] #empty list to be filled with lists of details for each ring, those being the color, diameter, what the ring looks like on the stack, and the escape code for the color.
+red=["Red",9," ═════════ ","\x1b[31m"]
+yellow=["Yellow",7,"  ═══════  ","\x1b[33m"]
+green=["Green",5,"   ═════   ","\x1b[32m"]
+blue=["Blue",3,"    ═══    ","\x1b[34m"]
+cyan=["Cyan",1,"     ═     ","\x1b[96m"]
 freeRings=[red,yellow,green,blue,cyan] #list of rings that havent been added to the stack
 
 def empty(): #check if the stack is empty.
@@ -23,18 +22,6 @@ def top(): #return the top ring.
 def push(a): #pushes an element onto the top of the stack.
     ringStack.insert(0,a)
 
-def setColor(a):
-        if a=="Red":
-            print(Fore.RED,end="")
-        elif a=="Yellow":
-            print(Fore.YELLOW,end="")
-        elif a=="Green":
-             print(Fore.GREEN,end="")
-        elif a=="Blue":
-           print(Fore.BLUE,end="")
-        else:
-            print(Fore.CYAN,end="")
-
 def addRing():
     global stacked
     print("Here are the rings you can put on the stack.")
@@ -42,9 +29,9 @@ def addRing():
     counter=0 
     for i in freeRings:
         counter+=1
-        setColor(i[0])
+        print(i[3],end="")
         print (counter,": ",i[0],sep="")
-        print(Fore.RESET,end="")
+        print("\x1b[0m",end="")
     print("")
     while True: #another input loop
         choice=(input("Input the number of a ring you would like to inspect. "))
@@ -62,9 +49,9 @@ def addRing():
     print("") #Inspection screen
     print("### Ring Details:",freeRings[choice][0],"###")
     print("A colored plastic ring. it looks like this:")
-    setColor(freeRings[choice][0])
+    print(freeRings[choice][3])
     print("〇") #They're all rings, so I can get away with just recoloring the same sprite
-    print(Fore.RESET+"Diameter in units:",freeRings[choice][1])
+    print("\x1b[0m"+"Diameter in units: ",freeRings[choice][1],sep="")
     print("---------------------------------------------")
     print("")
     while True: #input loop
@@ -118,17 +105,17 @@ def menuChoose():
 def drawStack():
     print("At the moment, the stack looks like this:")
     print("")
-    print(Fore.RESET+"     O    ")
+    print("\x1b[0m"+"     O    ")
     print("     ║    ")
     for i in range(5-stacked):
         print("     ║    ")
     for j in ringStack:
-        setColor(j[0])
+        print(j[3],end="")
         print(j[2])
-    print(Fore.RESET+"═════╩═════")
+    print("\x1b[0m"+"═════╩═════")
 
 
-print(Fore.RESET+"Welcome to Rock-a-stack!")
+print("\x1b[0m"+"Welcome to Rock-a-stack!")
 drawStack()
 menuChoose()
 

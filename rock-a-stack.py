@@ -31,7 +31,7 @@ def addRing():
         counter+=1
         print(i[3],end="")
         print (counter,": ",i[0],sep="")
-        print("\x1b[0m",end="")
+        print("\033[0m",end="")
     print("")
     while True: #another input loop
         choice=(input("Input the number of a ring you would like to inspect. "))
@@ -49,9 +49,9 @@ def addRing():
     print("") #Inspection screen
     print("### Ring Details:",freeRings[choice][0],"###")
     print("A colored plastic ring. it looks like this:")
-    print(freeRings[choice][3])
+    print(freeRings[choice][3],end="")
     print("〇") #They're all rings, so I can get away with just recoloring the same sprite
-    print("\x1b[0m"+"Diameter in units: ",freeRings[choice][1],sep="")
+    print("\033[0m"+"Diameter in units: ",freeRings[choice][1],sep="")
     print("---------------------------------------------")
     print("")
     while True: #input loop
@@ -105,17 +105,17 @@ def menuChoose():
 def drawStack():
     print("At the moment, the stack looks like this:")
     print("")
-    print("\x1b[0m"+"     O    ")
+    print("\033[0m"+"     O    ")
     print("     ║    ")
     for i in range(5-stacked):
         print("     ║    ")
     for j in ringStack:
         print(j[3],end="")
         print(j[2])
-    print("\x1b[0m"+"═════╩═════")
+    print("\033[0m"+"═════╩═════")
 
 
-print("\x1b[0m"+"Welcome to Rock-a-stack!")
+print("\033[0m"+"Welcome to Rock-a-stack!")
 drawStack()
 menuChoose()
 

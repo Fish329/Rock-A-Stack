@@ -32,19 +32,19 @@ def push(a): #pushes an element onto the top of the stack.
 def pop(): #removes the top item of the stack.
     ringStack.pop(0)
 
-def addRing():
+def addRing(): #Menu for choosing rings
     global stacked
     print("Here are the rings you can put on the stack.")
     print("")
     counter=0 
-    for i in freeRings:
+    for i in freeRings: #Print out rings that havent been added to the stack yet
         counter+=1
         print(i[3],end="")
         print (counter,": ",i[0],sep="")
         print(cRESET,end="")
     print("")
     while True: #another input loop
-        choice=(input("Input the number of a ring you would like to inspect. "))
+        choice=(input("Input the number of a ring you would like to inspect. ")) #ask user for ring number
         try:
             int(choice) #make sure the choice is a number. If not, ask again
         except:
@@ -87,45 +87,45 @@ def addRing():
 
 
 
-def menuChoose():
+def menuChoose(): #Decision screen, shows up under the complete stack
     global stacked
     print("")
     choice=input("Input A to add a ring to the stack, input R to remove the top ring, or input X to exit. ")
     print("")
-    if choice=="a" or choice=="A":
+    if choice=="a" or choice=="A": #add a ring to the stack
         if freeRings==[]: #If there aren't any rings left, don't bother
             print("Sorry, there are no rings left!")
             menuChoose()
         else:
             addRing()
-    elif choice=="r" or choice=="R":
-        if stacked==0:
+    elif choice=="r" or choice=="R": #remove a ring from the stack
+        if stacked==0: #if there are no rings on the stack, don't bother
             print("There are no rings on the stack.")
             menuChoose()
         else:
-            print("You remove the",top()[0],"ring.")
+            print("You remove the",top()[0],"ring.") #Otherwise pop the top ring
             freeRings.append(top())
-            ringStack.pop(0)
+            pop()
             stacked=stacked-1
             drawStack()
             menuChoose()
-    elif choice=="x" or choice=="X":
+    elif choice=="x" or choice=="X": #exit the program
         print("See you later!")
         exit()
     else:
         print("ERROR: please choose from the list given.")
         menuChoose()
 
-def drawStack():
+def drawStack(): # Image of the stack
     print("At the moment, the stack looks like this:")
     print("")
-    print(cRESET+"     O    ")
-    print("     ║    ")
-    for i in range(5-stacked):
+    print(cRESET+"     O    ") #Top of the stack
+    print("     ║    ") #I think one extra space looks nice. 
+    for i in range(5-stacked): #print empty spaces for the amount of empty spaces on the stack
         print("     ║    ")
-    for j in ringStack:
-        print(j[3],end="")
-        print(j[2])
+    for j in ringStack: #Print rings in color
+        print(j[3],end="") #get ring's color
+        print(j[2]) #print ring
     print(cRESET+"═════╩═════")
 
 print("")

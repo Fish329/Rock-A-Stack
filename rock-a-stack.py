@@ -29,6 +29,9 @@ def top(): #return the top ring.
 def push(a): #pushes an element onto the top of the stack.
     ringStack.insert(0,a)
 
+def pop(): #removes the top item of the stack.
+    ringStack.pop(0)
+
 def addRing():
     global stacked
     print("Here are the rings you can put on the stack.")

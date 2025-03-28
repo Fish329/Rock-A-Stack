@@ -121,13 +121,6 @@ def drawStack():
         print(j[2])
     print(cRESET+"═════╩═════")
 
-print("WARNING: EXTREMELY IMPORTANT")
-print("This program will not work correctly if ran in Python IDLE.")
-print("It will not parse ANSI escape codes required to print in color.")
-print("To my knowledge, there is no fix for this.")
-print("Please follow the instructions listed in the \"how to use\" section on the github page.")
-print("##### PLEASE READ THE MESSAGE ABOVE BEFORE CONTINUING. #####")
-input("Press enter to continue to the program.")
 print("")
 print(cRESET+"Welcome to Rock-a-stack!")
 drawStack()

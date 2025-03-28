@@ -57,7 +57,7 @@ def addRing():
         break
     choice-=1
     print("") #Inspection screen
-    print("### Ring Details:",freeRings[choice][0],"###")
+    print("### Ring Details:",freeRings[choice][0],"###") #print out the name of the ring
     print("A colored plastic ring. it looks like this:")
     print(freeRings[choice][3],end="")
     print("〇") #They're all rings, so I can get away with just recoloring the same sprite

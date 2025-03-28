@@ -112,10 +112,10 @@ def menuChoose():
 def drawStack():
     print("At the moment, the stack looks like this:")
     print("")
-    print(cRESET+"      O    ")
-    print("      ║    ")
+    print(cRESET+"     O    ")
+    print("     ║    ")
     for i in range(5-stacked):
-        print("      ║    ")
+        print("     ║    ")
     for j in ringStack:
         print(j[3],end="")
         print(j[2])

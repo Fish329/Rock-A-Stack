@@ -59,6 +59,10 @@ def addRing():
     print(freeRings[choice][3],end="")
     print("〇") #They're all rings, so I can get away with just recoloring the same sprite
     print(cRESET+"Diameter in units: ",freeRings[choice][1],sep="")
+    print("It looks like this on the stack:")
+    print(freeRings[choice][3],end="")
+    print(freeRings[choice][2])
+    print(cRESET,end="")
     print("---------------------------------------------")
     print("")
     while True: #input loop

@@ -14,13 +14,13 @@ cyan=["Cyan",1,"     ═     ",cCYAN]
 
 freeRings=[red,yellow,green,blue,cyan] #list of rings that havent been added to the stack
 
-def empty(): #check if the stack is empty.
+def empty(stacked): #check if the stack is empty.
     if stacked==0:
         return True
     else:
         return False
 
-def size(): #return the number of rings on the stack.
+def size(stacked): #return the number of rings on the stack.
     return stacked
 
 def top(): #return the top ring.
@@ -32,9 +32,7 @@ def push(a): #pushes an element onto the top of the stack.
 def pop(): #removes the top item of the stack.
     ringStack.pop(0)
 
-def addRing(): #Menu for choosing rings
-    global stacked #I could not find any way to make the code work other than this. I do not have time to rewrite the entire code. It works for what I want it to do. I WANT the variable to be accessible from wherever. After the global keyword, the function can be accessed from wherever. This is what I wanted it to do. I do not have time to rewrite my entire code. I apologize for this but I don't have any other choice.
-    print("Here are the rings you can put on the stack.")
+def addRing(stacked): #Menu for choosing rings
     print("")
     counter=0 
     for i in freeRings: #Print out rings that havent been added to the stack yet
@@ -76,47 +74,46 @@ def addRing(): #Menu for choosing rings
             freeRings.pop(choice)
             stacked=stacked+1
             print("")
-            drawStack()
-            menuChoose()
+            drawStack(stacked)
+            menuChoose(stacked)
         elif choose=="n" or choose=="N":
             print("")
-            addRing()
+            addRing(stacked)
         else:
             print("ERROR: please choose Y or N.")
             continue
 
 
 
-def menuChoose(): #Decision screen, shows up under the complete stack
-    global stacked
+def menuChoose(stacked): #Decision screen, shows up under the complete stack
     print("")
     choice=input("Input A to add a ring to the stack, input R to remove the top ring, or input X to exit. ")
     print("")
     if choice=="a" or choice=="A": #add a ring to the stack
         if freeRings==[]: #If there aren't any rings left, don't bother
             print("Sorry, there are no rings left!")
-            menuChoose()
+            menuChoose(stacked)
         else:
-            addRing()
+            addRing(stacked)
     elif choice=="r" or choice=="R": #remove a ring from the stack
         if stacked==0: #if there are no rings on the stack, don't bother
             print("There are no rings on the stack.")
-            menuChoose()
+            menuChoose(stacked)
         else:
             print("You remove the",top()[0],"ring.") #Otherwise pop the top ring
             freeRings.append(top())
             pop()
             stacked=stacked-1
-            drawStack()
-            menuChoose()
+            drawStack(stacked)
+            menuChoose(stacked)
     elif choice=="x" or choice=="X": #exit the program
         print("See you later!")
         exit()
     else:
         print("ERROR: please choose from the list given.")
-        menuChoose()
+        menuChoose(stacked)
 
-def drawStack(): # Image of the stack
+def drawStack(stacked): # Image of the stack
     print("At the moment, the stack looks like this:")
     print("")
     print(cRESET+"     O    ") #Top of the stack
@@ -130,7 +127,7 @@ def drawStack(): # Image of the stack
 
 print("")
 print(cRESET+"Welcome to Rock-a-stack!")
-drawStack()
-menuChoose()
+drawStack(stacked)
+menuChoose(stacked)
 
         

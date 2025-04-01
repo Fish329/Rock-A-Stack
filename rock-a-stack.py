@@ -26,8 +26,8 @@ def size(stacked): #return the number of rings on the stack.
 def top(): #return the top ring.
     return ringStack[0]
 
-def push(a): #pushes an element onto the top of the stack.
-    ringStack.insert(0,a)
+def push(data): #pushes an element onto the top of the stack.
+    ringStack.insert(0,data)
 
 def pop(): #removes the top item of the stack.
     ringStack.pop(0)

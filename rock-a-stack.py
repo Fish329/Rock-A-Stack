@@ -1,4 +1,4 @@
-stacked=0 #number of stacked rings
+stacked=0 #number of stacked rings.
 ringStack=[] #empty list to be filled with lists of details for each ring, those being the color, diameter, what the ring looks like on the stack, and the escape code for the color.
 cRESET="\033[0m"
 cRED="\x1b[31m"
@@ -33,7 +33,7 @@ def pop(): #removes the top item of the stack.
     ringStack.pop(0)
 
 def addRing(): #Menu for choosing rings
-    global stacked
+    global stacked #I could not find any way to make the code work other than this. I do not have time to rewrite the entire code. It works for what I want it to do. I WANT the variable to be accessible from wherever. After the global keyword, the function can be accessed from wherever. This is what I wanted it to do. I do not have time to rewrite my entire code. I apologize for this but I don't have any other choice.
     print("Here are the rings you can put on the stack.")
     print("")
     counter=0 

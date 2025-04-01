@@ -27,7 +27,7 @@ def top(): #return the top ring.
     return ringStack[0]
 
 def push(data): #pushes an element onto the top of the stack.
-    ringStack.insert(0,data) #this line is altering an array. When there is already an item at index 0, it gets moved over to index 1, and the item at index 1 gets moved over to index 2, etc. This works because arrays can be changed and moved around.
+    ringStack.insert(0,data) #this line is altering an array. When there is already an item at index 0, the item that was already there gets moved over to index 1, and the item at index 1 gets moved over to index 2, etc. This works because arrays can be changed and moved around.
 def pop(): #removes the top item of the stack.
     ringStack.pop(0)
 
